@@ -52,7 +52,7 @@ class WebsocketNotificationBackend(BaseNotificationBackend):
             notify_kwargs = {"group_name": get_group_name(recipient.pk)}
             try:
                 async_to_sync(channel_layer.group_send)(
-                    notify_kwargs["group_name"], message
+                    notify_kwargs["group_name"], message.content
                 )
             except Exception as e:
                 self.on_failure(message, recipient, e, save, notify_kwargs)

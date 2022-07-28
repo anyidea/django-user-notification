@@ -9,7 +9,7 @@ def make_etag(*args):
 
 
 def get_group_name(user_id: int):
-    return f"notify:{user_id}"
+    return f"notify-{user_id}"
 
 
 def get_notification_backend(msg_type: str):
