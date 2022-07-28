@@ -12,6 +12,7 @@ url = "https://mirrors.aliyun.com/pypi/simple/"
 python = "^3.9"
 django = "3.2.12"
 django-user-notification = {path = "../", develop = true, extras = ["channels", "aliyunsms"]}
+django-environ = "^0.9.0"
 
 [tool.poetry.dev-dependencies]
 
