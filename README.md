@@ -121,8 +121,8 @@ Supported backends
 - `EmailNotificationBackend`: send email notification.
 - `WebsocketNotificationBackend`: send webdocket notification, need `channels` installed
 - `AliyunSMSNotificationBackend`: send aliyun sms notification.
-- `DingTalkChatBotNotificationBackend`: send dingtalk chatbot notification.
-- `DingTalkTODOTaskNotificationBackend`: send dingtalk todo tasks notification
+- `DingTalkChatbotNotificationBackend`: send dingtalk chatbot notification.
+- `DingTalkToDoTaskNotificationBackend`: send dingtalk todo tasks notification
 - `DingTalkWorkMessageNotificationBackend`: send dingtalk work message notification.
 
 Running the tests
