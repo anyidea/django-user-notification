@@ -105,9 +105,7 @@ and `context` parameters.
 
 1)  Create a template message with code named `TMP01` on django admin
 
-
-
-2) Provide the `template_code` and `context` to `send` method:
+2)  Provide the `template_code` and `context` to `send` method:
 ``` {.python}
 ...
 
@@ -119,11 +117,12 @@ Supported backends
 
 - `DummyNotificationBackend`: send dummy message
 - `EmailNotificationBackend`: send email notification.
-- `WebsocketNotificationBackend`: send webdocket notification, need `channels` installed
-- `AliyunSMSNotificationBackend`: send aliyun sms notification.
+- `WebsocketNotificationBackend`: send webdocket notification, need install extension: `channels`.
+- `AliyunSMSNotificationBackend`: send aliyun sms notification, need install extension: `aliyunsms`.
 - `DingTalkChatbotNotificationBackend`: send dingtalk chatbot notification.
 - `DingTalkToDoTaskNotificationBackend`: send dingtalk todo tasks notification
 - `DingTalkWorkMessageNotificationBackend`: send dingtalk work message notification.
+- `WechatNotificationBackend`: planning...
 
 Running the tests
 -----------------
