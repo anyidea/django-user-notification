@@ -9,13 +9,14 @@ from notification.backends.base import BaseNotificationBackend, notify
 from notification.models import Message
 
 
-class DingTalkTODOTaskNotificationBackend(BaseNotificationBackend):
+class DingTalkToDoTaskNotificationBackend(BaseNotificationBackend):
     """
     A backend handle dingtalk todo message.
     https://open.dingtalk.com/document/orgapp-server/add-dingtalk-to-do-task
     """
 
     id = "dingtalktodotask"
+    message_subtype = "plain"
 
     def __init__(self, *args, app_key=None, app_secret=None, **kwargs):
         try:
@@ -89,7 +90,7 @@ class DingTalkTODOTaskNotificationBackend(BaseNotificationBackend):
 def notify_by_dingtalk_todotask(
     recipients: list[User],
     unioinid_field: typing.Union[str, typing.Callable],
-    title: str,
+    title: str = None,
     message: str = None,
     context: dict = None,
     template_code: str = None,
@@ -115,7 +116,7 @@ def notify_by_dingtalk_todotask(
         message=message,
         context=context,
         template_code=template_code,
-        backends=(DingTalkTODOTaskNotificationBackend,),
+        backends=(DingTalkToDoTaskNotificationBackend,),
         save=save,
         recipient_field=unioinid_field,
         message_kwargs=message_kwargs,

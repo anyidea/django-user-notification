@@ -18,6 +18,7 @@ class WebsocketNotificationBackend(BaseNotificationBackend):
     """
 
     id = "websocket"
+    message_subtype = "plain"
 
     def make_content(
         self,

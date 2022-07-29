@@ -9,17 +9,17 @@
 
 Overview
 -----
-Django user notification is intended to provide a way to send multiple types of notification messages to django users out of box
- and docs are on the way...
+Django user notification is intended to provide a way to send multiple types of notification messages to django users out of box.
+
+Documentation
+-----
+on the way...
 
 Requirements
 -----
 
-* Python (3.8, 3.9, 3.10)
-* Django (3.1, 3.2, 4.0, 4.1)
-
-We **highly recommend** and only officially support the latest patch release of
-each Python and Django series.
+* Python 3.8, 3.9, 3.10
+* Django 3.1, 3.2, 4.0, 4.1
 
 Installation
 -----
@@ -28,10 +28,12 @@ Install using `pip`...
 
     pip install django-user-notification
 
-Add `'notification'` to your `INSTALLED_APPS` setting.
+Add `'django_quill'` and `'notification'` to your `INSTALLED_APPS` setting.
 ```python
 INSTALLED_APPS = [
+    'django.contrib.admin',
     ...
+    'django_quill',
     'notification',
 ]
 ```
@@ -51,26 +53,27 @@ Add the following to your `settings.py` module:
 ```python
 INSTALLED_APPS = [
     ...  # Make sure to include the default installed apps here.
+    'django_quill',
     'notification',
 ]
 
 DJANGO_USER_NOTIFICATION = {
     "aliyunsms": {
-        "access_key_id": "ACCESS_KEY_ID",
-        "access_key_secret": "ACCESS_KEY_SECRET",
-        "sign_name": "SIGN_NAME",
+        "access_key_id": "Your Access Key ID",
+        "access_key_secret": "Your Access Key Secret",
+        "sign_name": "Your Sign Name",
     },
     "dingtalkchatbot": {
-        "webhook": "DINGTALK_WEBHOOK",
+        "webhook": "Your Webhook URL",
     },
     "dingtalkworkmessage": {
-        "agent_id": "DINGTALK_AGENT_ID",
-        "app_key": "DINGTALK_APP_KEY",
-        "app_secret": "DINGTALK_APP_SECRET",
+        "agent_id": "Your App Agent ID",
+        "app_key": "Your App Key",
+        "app_secret": "Your App Secret",
     },
     "dingtalktodotask": {
-        "app_key": "DINGTALK_APP_KEY",
-        "app_secret": "DINGTALK_APP_SECRET",
+        "app_key": "Your App Key",
+        "app_secret": "Your App Secret",
     },
 }
 ```
@@ -128,15 +131,19 @@ Running the tests
 To run the tests against the current environment:
 
 ``` {.bash}
-$ ./manage.py test
+$ pytest tests/
 ```
 
-### Changelog
+Changelog
+---------
 
-0.5.0
------
+### 0.7.0
 
 -   Initial release
+
+Contributing
+------------
+As an open source project, we welcome contributions. The code lives on [GitHub](https://github.com/anyidea/django-user-notification/)
 
 ## Thanks
 
