@@ -19,6 +19,7 @@ exclude = '''
   | blib2to3
   | tests/data
   | profiling
+  | migrations
 )/
 '''
 
@@ -69,6 +70,8 @@ django = ">=3.2"
 requests = "^2.27.1"
 channels = { version=">=3.0.4", optional=true }
 alibabacloud-dysmsapi20170525 = { version=">=2.0.16", optional=true }
+markdownify = ">=0.11.2"
+django-quill-editor = ">=0.1.40"
 
 [tool.poetry.dev-dependencies]
 

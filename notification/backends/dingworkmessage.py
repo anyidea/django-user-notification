@@ -4,9 +4,11 @@ import requests
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.core.exceptions import ImproperlyConfigured
+from django.template import Context, Template
+from markdownify import markdownify
 
 from notification.backends.base import BaseNotificationBackend, notify
-from notification.models import Message
+from notification.models import Message, MessageTemplate
 
 
 class DingTalkWorkMessageNotificationBackend(BaseNotificationBackend):
@@ -16,7 +18,7 @@ class DingTalkWorkMessageNotificationBackend(BaseNotificationBackend):
     """  # noqa
 
     id = "dingtalkworkmessage"
-    msgtype = "markdown"
+    message_subtype = "markdown"
 
     def __init__(self, *args, agent_id=None, app_key=None, app_secret=None, **kwargs):
         try:
@@ -53,11 +55,18 @@ class DingTalkWorkMessageNotificationBackend(BaseNotificationBackend):
 
         super().__init__(*args, **kwargs)
 
+    def render_template(self, template: MessageTemplate, context: dict) -> str:
+        try:
+            html_content = Template(template.content.html).render(Context(context))
+            return markdownify(html_content)
+        except Exception as e:
+            raise ValueError("Render message failed: %s" % e)
+
     def make_content(
         self, title, content, recipients, recipient_field, **kwargs
     ) -> dict:
         return {
-            "msgtype": self.msgtype,
+            "msgtype": self.message_subtype,
             self.msgtype: {"title": title, "text": content},
         }
 
@@ -102,7 +111,7 @@ class DingTalkWorkMessageNotificationBackend(BaseNotificationBackend):
 def notify_by_dingtalk_workmessage(
     recipients: list[User],
     userid_field: typing.Union[str, typing.Callable],
-    title: str,
+    title: str = None,
     message: str = None,
     context: dict = None,
     template_code: str = None,

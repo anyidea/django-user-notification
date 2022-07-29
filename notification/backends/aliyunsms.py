@@ -18,6 +18,7 @@ class AliyunSMSNotificationBackend(BaseNotificationBackend):
     """  # noqa
 
     id = "aliyunsms"
+    message_subtype = "plain"
     endpoint = "dysmsapi.aliyuncs.com"
 
     def __init__(
