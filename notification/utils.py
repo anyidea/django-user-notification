@@ -1,8 +1,5 @@
 from base64 import b64encode
 
-from notification import backends
-from notification.backends.base import BaseNotificationBackend
-
 
 def make_etag(*args):
     """
@@ -19,6 +16,9 @@ def get_notification_backend(msg_type: str):
     """
     Get notification backend.
     """
+    from notification import backends
+    from notification.backends.base import BaseNotificationBackend
+
     for att in dir(backends):
         attr_value = (att, getattr(backends, att))
         if (
