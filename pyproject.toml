@@ -1,0 +1,79 @@
+[tool.commitizen]
+version = "0.7.11"
+changelog_start_rev = "0.7.0"
+tag_format = "v$major.$minor.$patch$prerelease"
+version_files = [
+    "pyproject.toml:version",
+    "notification/__init__.py"
+]
+
+[tool.poetry]
+name = "django-user-notification"
+version = "0.7.11"
+description = "Django message notification package"
+authors = ["Aiden Lu <allaher@icloud.com>"]
+readme = "README.md"
+keywords = ["notification", "django"]
+packages = [
+    { include = "notification" },
+]
+homepage = "https://github.com/aiden520/django-user-notification"
+repository = "https://github.com/aiden520/django-user-notification"
+classifiers = [
+    "Intended Audience :: Developers",
+    "Environment :: Web Environment",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+license = "Apache-2.0"
+include = [
+    "LICENSE",
+]
+
+[tool.poetry.dependencies]
+python = ">=3.8"
+django = ">=3.1"
+requests = "^2.27.1"
+channels = { version=">=3.0.4", optional=true }
+alibabacloud-dysmsapi20170525 = { version=">=2.0.16", optional=true }
+markdownify = ">=0.11.2"
+django-quill-editor = ">=0.1.40"
+
+[tool.poetry.dev-dependencies]
+flake8 = "^4.0.1"
+pytest = "^6.2.5"
+
+[tool.poetry.extras]
+channels = ["channels"]
+aliyunsms = ["alibabacloud-dysmsapi20170525"]
+
+[tool.black]
+line-length = 89
+target-version = ['py38', 'py39']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+
+  # The following are specific to Black, you probably don't want those.
+  | blib2to3
+  | tests/data
+  | profiling
+  | migrations
+)/
+'''
+
+[tool.isort]
+profile = "black"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
