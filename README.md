@@ -146,6 +146,3 @@ Contributing
 ------------
 As an open source project, we welcome contributions. The code lives on [GitHub](https://github.com/anyidea/django-user-notification/)
 
-## Thanks
-
-[![PyCharm](docs/pycharm.svg)](https://www.jetbrains.com/?from=django-user-notification)
