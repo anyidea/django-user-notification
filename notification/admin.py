@@ -47,7 +47,8 @@ class NotificationAdmin(admin.ModelAdmin):
     list_select_related = ["to", "message"]
     list_filter = ["to", "is_sent", "message__msg_type"]
     search_fields = ["message__mark"]
-    autocomplete_fields = ["to", "message"]
+    autocomplete_fields = ["message"]
+    raw_id_fields = ["to"]
     actions = ["send", "read", "ignore"]
     ordering = ("-id",)
 
