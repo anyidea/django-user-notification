@@ -1,6 +1,6 @@
 # Django user notification
 
-[![Build Status](https://img.shields.io/github/workflow/status/anyidea/django-user-notification/CI/master)](https://github.com/anyidea/django-user-notification/actions?query=workflow%3ACI)
+[![CI](https://github.com/wccdev/django-user-notification/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/wccdev/django-user-notification/actions/workflows/ci.yml)
 [![GitHub license](https://img.shields.io/github/license/anyidea/django-user-notification)](https://github.com/anyidea/django-user-notification/blob/master/LICENSE)
 [![Documentation Status](https://readthedocs.org/projects/django-user-notification/badge/?version=latest)](https://django-user-notification.readthedocs.io/en/latest/?badge=latest)
 [![pypi-version](https://img.shields.io/pypi/v/django-user-notification.svg)](https://pypi.python.org/pypi/django-user-notification)
