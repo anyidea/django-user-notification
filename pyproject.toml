@@ -1,5 +1,5 @@
 [tool.commitizen]
-version = "0.7.11"
+version = "0.7.12"
 changelog_start_rev = "0.7.0"
 tag_format = "v$major.$minor.$patch$prerelease"
 version_files = [
@@ -9,7 +9,7 @@ version_files = [
 
 [tool.poetry]
 name = "django-user-notification"
-version = "0.7.11"
+version = "0.7.12"
 description = "Django message notification package"
 authors = ["Aiden Lu <allaher@icloud.com>"]
 readme = "README.md"
