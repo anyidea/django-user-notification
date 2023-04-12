@@ -1,3 +1,9 @@
+## v0.8.0 (2023-04-12)
+
+### Feat
+
+- replace django-quill-editor with django-tinymce
+
 ## v0.7.12 (2023-03-06)
 
 ### Fix
