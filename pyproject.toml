@@ -1,5 +1,5 @@
 [tool.commitizen]
-version = "0.7.12"
+version = "0.8.0"
 changelog_start_rev = "0.7.0"
 tag_format = "v$major.$minor.$patch$prerelease"
 version_files = [
@@ -9,7 +9,7 @@ version_files = [
 
 [tool.poetry]
 name = "django-user-notification"
-version = "0.7.12"
+version = "0.8.0"
 description = "Django message notification package"
 authors = ["Aiden Lu <allaher@icloud.com>"]
 readme = "README.md"
@@ -36,7 +36,7 @@ requests = "^2.27.1"
 channels = { version=">=3.0.4", optional=true }
 alibabacloud-dysmsapi20170525 = { version=">=2.0.16", optional=true }
 markdownify = ">=0.11.2"
-django-quill-editor = ">=0.1.40"
+django-tinymce = "^3.6.1"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^4.0.1"

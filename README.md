@@ -29,12 +29,12 @@ Install using `pip`...
 
     pip install django-user-notification
 
-Add `'django_quill'` and `'notification'` to your `INSTALLED_APPS` setting.
+Add `'tinymce'` and `'notification'` to your `INSTALLED_APPS` setting.
 ```python
 INSTALLED_APPS = [
     'django.contrib.admin',
     ...
-    'django_quill',
+    'tinymce',
     'notification',
 ]
 ```
@@ -54,7 +54,7 @@ Add the following to your `settings.py` module:
 ```python
 INSTALLED_APPS = [
     ...  # Make sure to include the default installed apps here.
-    'django_quill',
+    'tinymce',
     'notification',
 ]
 
