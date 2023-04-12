@@ -1,6 +1,7 @@
 from django.contrib import admin, messages
 from django.contrib.admin import display
 from django.db import models
+from tinymce.widgets import TinyMCE
 from django.forms import Textarea
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
@@ -28,7 +29,7 @@ class TemplateAdmin(admin.ModelAdmin):
     ordering = ("-id",)
 
     formfield_overrides = {
-        models.TextField: {"widget": Textarea(attrs={"rows": 3, "cols": 38})},
+        models.TextField: {"widget": TinyMCE(attrs={"rows": 10, "cols": 38})},
         models.JSONField: {"widget": Textarea(attrs={"rows": 2, "cols": 38})},
     }
 

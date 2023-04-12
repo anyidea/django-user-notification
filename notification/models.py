@@ -2,7 +2,7 @@ from django.conf import settings
 from django.contrib.postgres.indexes import GinIndex
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from django_quill.fields import QuillField
+from tinymce.models import HTMLField
 
 
 class NotificationQuerySet(models.QuerySet):
@@ -109,7 +109,7 @@ class MessageTemplate(models.Model):
     title = models.CharField(
         max_length=64, verbose_name=_("Message Title"), null=True, blank=True
     )
-    content = QuillField(verbose_name=_("Template Content"))
+    content = models.TextField(verbose_name=_("Template Content"))
     backend_kwargs = models.JSONField(
         verbose_name=_("Backend Kwargs"), blank=True, default=dict
     )

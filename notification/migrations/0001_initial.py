@@ -3,7 +3,6 @@
 from django.conf import settings
 from django.db import migrations, models
 import django.db.models.deletion
-import django_quill.fields
 
 
 class Migration(migrations.Migration):
@@ -39,7 +38,7 @@ class Migration(migrations.Migration):
                 ('description', models.TextField(blank=True, null=True, verbose_name='Description')),
                 ('code', models.CharField(max_length=4, unique=True, verbose_name='Template Code')),
                 ('title', models.CharField(blank=True, max_length=64, null=True, verbose_name='Message Title')),
-                ('content', django_quill.fields.QuillField(verbose_name='Template Content')),
+                ('content', models.TextField(verbose_name='Template Content')),
                 ('backend_kwargs', models.JSONField(blank=True, default=dict, verbose_name='Backend Kwargs')),
                 ('message_kwargs', models.JSONField(blank=True, default=dict, verbose_name='Message Kwargs')),
             ],

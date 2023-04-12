@@ -19,7 +19,7 @@ class EmailNotificationBackend(BaseNotificationBackend):
 
     def render_template(self, template: MessageTemplate, context: dict) -> str:
         try:
-            return Template(template.content.html).render(Context(context))
+            return Template(template.content).render(Context(context))
         except Exception as e:
             raise ValueError("Render message failed: %s" % e)
 

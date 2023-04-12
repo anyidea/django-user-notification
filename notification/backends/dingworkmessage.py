@@ -57,7 +57,7 @@ class DingTalkWorkMessageNotificationBackend(BaseNotificationBackend):
 
     def render_template(self, template: MessageTemplate, context: dict) -> str:
         try:
-            html_content = Template(template.content.html).render(Context(context))
+            html_content = Template(template.content).render(Context(context))
             return markdownify(html_content)
         except Exception as e:
             raise ValueError("Render message failed: %s" % e)
