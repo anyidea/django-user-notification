@@ -79,6 +79,15 @@ DJANGO_USER_NOTIFICATION = {
 }
 ```
 
+Add `tinymce.urls` to `urls.py` for your project:
+```python
+urlpatterns = [
+    ...
+    path('tinymce/', include('tinymce.urls')),
+    ...
+]
+```
+
 Let's send a notification
 
 ``` {.python}

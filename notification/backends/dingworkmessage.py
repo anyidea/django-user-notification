@@ -67,7 +67,7 @@ class DingTalkWorkMessageNotificationBackend(BaseNotificationBackend):
     ) -> dict:
         return {
             "msgtype": self.message_subtype,
-            self.msgtype: {"title": title, "text": content},
+            self.message_subtype: {"title": title, "text": content},
         }
 
     def get_access_token(self):
