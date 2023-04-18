@@ -1,3 +1,9 @@
+## v0.8.1 (2023-04-18)
+
+### Fix
+
+- rename varibale msgtype to message_subtype
+
 ## v0.8.0 (2023-04-12)
 
 ### Feat
