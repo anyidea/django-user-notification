@@ -1,12 +1,16 @@
 import json
 import typing
 
-from alibabacloud_dysmsapi20170525.client import Client as Dysmsapi20170525Client
-from alibabacloud_dysmsapi20170525.models import SendSmsRequest
-from alibabacloud_tea_openapi import models as open_api_models
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.core.exceptions import ImproperlyConfigured
+
+try:
+    from alibabacloud_dysmsapi20170525.client import Client as Dysmsapi20170525Client
+    from alibabacloud_dysmsapi20170525.models import SendSmsRequest
+    from alibabacloud_tea_openapi import models as open_api_models
+except ImportError:
+    pass
 
 from notification.base import BaseNotificationBackend, notify
 
