@@ -70,6 +70,24 @@ class DingTalkWorkMessageNotificationBackend(BaseNotificationBackend):
             self.message_subtype: {"title": title, "text": content},
         }
 
+    def get_recipient(
+        self,
+        recipient: User,
+        recipient_field: typing.Union[str, typing.Callable],
+    ) -> typing.Iterable[str]:
+        userid = super().get_recipient(recipient, recipient_field)
+        # get userid by mobile
+        if str(userid).isdigit() and len(str(userid)) == 11:
+            url = "https://oapi.dingtalk.com/topapi/v2/user/getbymobile"
+            params = {"access_token": self.get_access_token()}
+            payload = {"mobile": userid}
+            resp = requests.post(url, params=params, json=payload)
+            ret = resp.json()
+            assert str(ret["errcode"]) == "0", ret["errmsg"]
+            return ret["result"]["userid"]
+
+        return userid
+
     def get_access_token(self):
         url = "https://oapi.dingtalk.com/gettoken"
         params = {
@@ -101,7 +119,7 @@ class DingTalkWorkMessageNotificationBackend(BaseNotificationBackend):
                 resp = requests.post(url, params=params, json=json)
                 resp.raise_for_status()
                 ret = resp.json()
-                assert ret["errcode"] == 0, ret["errmsg"]
+                assert str(ret["errcode"]) == "0", ret["errmsg"]
             except Exception as e:
                 self.on_failure(message, recipient, e, save, notify_kwargs)
             else:

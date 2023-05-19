@@ -74,7 +74,7 @@ class BaseNotificationBackend:
 
     def get_recipient(
         self,
-        recipient: list[User],
+        recipient: typing.Union[list[User], User],
         recipient_field: typing.Union[str, typing.Callable],
     ) -> typing.Iterable[str]:
         if callable(recipient_field):
