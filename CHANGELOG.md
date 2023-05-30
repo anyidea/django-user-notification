@@ -1,3 +1,9 @@
+## v0.9.1 (2023-05-30)
+
+### Fix
+
+- change tinymc editor style
+
 ## v0.9.0 (2023-05-19)
 
 ### Feat
