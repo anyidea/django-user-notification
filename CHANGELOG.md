@@ -1,3 +1,9 @@
+## v0.10.0 (2023-05-30)
+
+### Feat
+
+- enable default settings
+
 ## v0.9.2 (2023-05-30)
 
 ### Fix
