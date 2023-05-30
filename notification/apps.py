@@ -1,4 +1,7 @@
 from django.apps import AppConfig
+from .utils import init_settings
+
+init_settings()
 
 
 class NotificationConfig(AppConfig):

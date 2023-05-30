@@ -28,3 +28,20 @@ def get_notification_backend_class(msg_type):
             return attr_value
     else:
         raise ValueError(f"Notification backend {msg_type} doesn't exist.")
+
+
+def init_settings():
+    from django.conf import settings
+
+    settings.TINYMCE_DEFAULT_CONFIG = getattr(
+        settings,
+        "TINYMCE_DEFAULT_CONFIG",
+        {
+            "tinymce_version": "6",
+            "height": 300,
+            "width": 600,
+            "menubar": True,
+            "language": "en_US",
+        },
+    )
+    settings.TINYMCE_JS_URL = getattr(settings, "TINYMCE_JS_URL", "https://cdn.jsdelivr.net/npm/tinymce/tinymce.min.js")
