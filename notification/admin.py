@@ -35,6 +35,7 @@ class TemplateAdmin(admin.ModelAdmin):
     list_display = ("name", "code", "title", "description")
     list_filter = ("code",)
     search_fields = ["code", "name"]
+    form = TemplateForm
     ordering = ("-id",)
 
 
