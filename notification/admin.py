@@ -1,14 +1,32 @@
 from django.contrib import admin, messages
 from django.contrib.admin import display
-from django.db import models
 from tinymce.widgets import TinyMCE
-from django.forms import Textarea
+from django.forms import Textarea, ModelForm
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
 from .models import Message, MessageTemplate, Notification
 
 # Register your models here.
+
+class TemplateForm(ModelForm):
+    class Meta:
+        model = MessageTemplate
+        fields = [
+            "name",
+            "code",
+            "title",
+            "description",
+            "backend_kwargs",
+            "message_kwargs",
+            "content",
+        ]
+        widgets = {
+            "description": Textarea(attrs={"rows": 3, "cols": 38}),
+            "backend_kwargs": Textarea(attrs={"rows": 2, "cols": 38}),
+            "message_kwargs": Textarea(attrs={"rows": 2, "cols": 38}),
+            "content": TinyMCE(),
+        }
 
 
 @admin.register(MessageTemplate)
@@ -17,21 +35,7 @@ class TemplateAdmin(admin.ModelAdmin):
     list_display = ("name", "code", "title", "description")
     list_filter = ("code",)
     search_fields = ["code", "name"]
-    fields = [
-        "name",
-        "code",
-        "title",
-        "description",
-        "backend_kwargs",
-        "message_kwargs",
-        "content",
-    ]
     ordering = ("-id",)
-
-    formfield_overrides = {
-        models.TextField: {"widget": TinyMCE(attrs={"rows": 10, "cols": 38})},
-        models.JSONField: {"widget": Textarea(attrs={"rows": 2, "cols": 38})},
-    }
 
 
 @admin.register(Notification)

@@ -2,7 +2,6 @@ from django.conf import settings
 from django.contrib.postgres.indexes import GinIndex
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from tinymce.models import HTMLField
 
 
 class NotificationQuerySet(models.QuerySet):

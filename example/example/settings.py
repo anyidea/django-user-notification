@@ -169,3 +169,16 @@ DJANGO_USER_NOTIFICATION = {
 EMAIL_HOST = env("EMAIL_HOST")
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-port
 EMAIL_PORT = 1025
+
+
+# django user notification
+TINYMCE_DEFAULT_CONFIG = {
+    # ... other options ...
+    "tinymce_version": "6",
+    "height": 300,
+    "width": 600,
+    "menubar": True,
+    "language": "en_US",
+}
+TINYMCE_JS_URL = "https://cdn.jsdelivr.net/npm/tinymce/tinymce.min.js"
+TINYMCE_COMPRESSOR = False
